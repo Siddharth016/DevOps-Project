@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: event-handler-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: event-handler
+        image: busybox
+        command: ["sh", "-c", "echo Handling K8s Event! && sleep 30"]
+      restartPolicy: Never

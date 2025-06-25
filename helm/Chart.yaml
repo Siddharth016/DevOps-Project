@@ -1,0 +1,4 @@
+apiVersion: v2
+name: nginx-k8s-demo
+description: A Helm chart for NGINX with K8s deployment, secret, and service
+version: 0.1.0

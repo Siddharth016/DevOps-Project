@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx-k8s-demo:latest
+        ports:
+        - containerPort: 80
+        env:
+          - name: NGINX_ENV
+            valueFrom:
+              secretKeyRef:
+                name: nginx-secret
+                key: nginx_env

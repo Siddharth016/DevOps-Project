@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-worker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-worker
+  template:
+    metadata:
+      labels:
+        app: nginx-worker
+    spec:
+      containers:
+      - name: nginx-worker
+        image: nginx:alpine
+        ports:
+        - containerPort: 80

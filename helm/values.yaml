@@ -1,0 +1,8 @@
+replicaCount: 3
+image:
+  repository: nginx-k8s-demo
+  tag: latest
+service:
+  type: LoadBalancer
+secret:
+  nginx_env: production
